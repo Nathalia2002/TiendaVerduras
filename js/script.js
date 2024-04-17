@@ -27,6 +27,61 @@ document.querySelector('#login-btn').onclick = () =>{
     navbar.classList.remove('active');
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  // Agregar producto al carrito
+  $(".btn-agregar").on("click", function () {
+      var producto = $(this).closest(".box");
+      var precio = parseFloat(producto.find(".price").text().replace("$", "").split("-")[0]); // Tomar solo el precio más bajo si hay un rango
+      var total = parseFloat($(".total").text().replace("total : $", ""));
+      total += precio;
+      $(".total").text("total : $" + total.toFixed(2));
+  });
+
+  // Eliminar producto del carrito
+  $(".fa-trash").on("click", function () {
+      var producto = $(this).closest(".box");
+      var precio = parseFloat(producto.find(".price").text().replace("$", "").split("-")[0]); // Tomar solo el precio más bajo si hay un rango
+      var total = parseFloat($(".total").text().replace("total : $", ""));
+      total -= precio;
+      producto.remove();
+      $(".total").text("total : $" + total.toFixed(2));
+  });
+});
+
+
+
+// Selecciona todos los botones "añadir al carrito"
+const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+
+// Itera sobre cada botón y agrega un event listener para el clic
+addToCartButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Obtén el contenedor del producto actual
+        const productContainer = button.closest('.box');
+
+        // Extrae la información del producto desde el contenedor
+        const productName = productContainer.querySelector('h3').innerText;
+        const productPrice = productContainer.querySelector('.price').innerText;
+
+        // Crea un nuevo elemento para representar el producto en el carrito
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('box');
+        cartItem.innerHTML = `
+            <i class="fas fa-trash"></i>
+            <img src="image/${productName.toLowerCase().replace(' ', '-')}.png" alt="${productName}">
+            <div class="content">
+                <h3>${productName}</h3>
+                <span class="price">${productPrice}</span>
+                <span class="quantity">cantidad: 1</span>
+            </div>
+        `;
+
+        // Agrega el nuevo elemento al contenedor del carrito
+        const cartContainer = document.querySelector('.shopping-cart');
+        cartContainer.insertBefore(cartItem, cartContainer.lastElementChild.previousElementSibling);
+    });
+});
+
 
 let navbar = document.querySelector('.navbar');
 

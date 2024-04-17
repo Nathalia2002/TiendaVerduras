@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
 
 body {
-    background-color: #fafafa; /* Color de fondo */
+    background-color: #fafafa; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,23 +22,23 @@ body {
 .crear-cuenta-form label {
     margin-bottom: 30px; /* Espacio entre cada label y el input */
     text-align: center;
-    font-size: 20px; /* Tamaño de fuente grande */
+    font-size: 20px; 
     font-weight: bold; /* Texto en negrita */
     color: #ff7800;
     display: block; /* Para que cada label ocupe toda la anchura del formulario */
 }
 
 .crear-cuenta-form h1 {
-    margin-bottom: 20px; /* Espacio entre cada label y el input */
+    margin-bottom: 20px; 
     text-align: center;
     font-size: 13px; /* Tamaño de fuente grande */
-    display: block; /* Para que cada label ocupe toda la anchura del formulario */
+    display: block; 
 }
 
 .crear-cuenta-form a {
     display: block; /* Para que el enlace ocupe toda la anchura del formulario */
     text-align: center; /* Para centrar el texto */
-    font-weight: bold; /* Texto en negrita */
+    font-weight: bold; 
 }
 
 

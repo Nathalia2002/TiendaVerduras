@@ -2,30 +2,30 @@
 
 /* Estilo general del cuerpo */
 body {
-    background-color: #fafafa; /* Color de fondo */
+    background-color: #fafafa;
     display: flex;
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
-    height: 100vh; /* Tamaño de la ventana */
+    height: 100vh; 
     margin: 0; /* Elimina el margen predeterminado */
 }
 
 h1{
-    margin-bottom: 30px; /* Espacio entre cada label y el input */
+    margin-bottom: 30px; 
     text-align: center;
-    font-size: 30px; /* Tamaño de fuente grande */
+    font-size: 30px; 
     display: block; /* Para que cada label ocupe toda la anchura del formulario */
 }
 
 h2{
-    margin-bottom: 40px; /* Espacio entre cada label y el input */
+    margin-bottom: 40px; 
     text-align: center;
-    font-size: 15px; /* Tamaño de fuente grande */
-    display: block; /* Para que cada label ocupe toda la anchura del formulario */
+    font-size: 15px;
+    display: block;
 }
 
 a {
-    text-align: center; /* Para centrar el texto */
+    text-align: center; 
     font-weight: bold; /* Texto en negrita */
     display: inline-block; /* Para que los enlaces estén en línea */
     margin: 0 14px; /* Margen horizontal entre los enlaces */
@@ -33,8 +33,8 @@ a {
 
 /* Estilo del formulario */
 form {
-    background-color: #fff; /* Color de fondo */
-    border: 1px solid #dbdbdb; /* Borde */
+    background-color: #fff; 
+    border: 1px solid #dbdbdb; 
     border-radius: 4px; /* Bordes redondeados */
     padding: 40px; /* Espacio interno */
     width: 300px; /* Ancho del formulario */
@@ -45,19 +45,19 @@ form {
 /* Estilo de los campos de entrada */
 input[type="email"],
 input[type="submit"] {
-    width: 100%; /* Ancho completo */
-    padding: 10px; /* Espacio interno */
+    width: 100%; 
+    padding: 10px; 
     margin-bottom: 15px; /* Espacio inferior */
-    border: 1px solid #dbdbdb; /* Borde */
-    border-radius: 4px; /* Bordes redondeados */
-    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
+    border: 1px solid #dbdbdb; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
 }
 
 /* Estilo del botón */
 input[type="submit"] {
     margin-bottom: 50px;
-    background-color: #ff7800; /* Color de fondo */
-    color: #fff; /* Color del texto */
+    background-color: #ff7800; 
+    color: #fff; 
     cursor: pointer; /* Cambia el cursor al pasar */
 }
 
