@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+/* Estilo general del cuerpo */
+body {
+    background-color: #fafafa; /* Color de fondo */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; /* Tamaño de la ventana */
+    margin: 0; /* Elimina el margen predeterminado */
+}
+
+h1{
+    margin-bottom: 30px; /* Espacio entre cada label y el input */
+    text-align: center;
+    font-size: 30px; /* Tamaño de fuente grande */
+    display: block; /* Para que cada label ocupe toda la anchura del formulario */
+}
+
+h2{
+    margin-bottom: 40px; /* Espacio entre cada label y el input */
+    text-align: center;
+    font-size: 15px; /* Tamaño de fuente grande */
+    display: block; /* Para que cada label ocupe toda la anchura del formulario */
+}
+
+a {
+    text-align: center; /* Para centrar el texto */
+    font-weight: bold; /* Texto en negrita */
+    display: inline-block; /* Para que los enlaces estén en línea */
+    margin: 0 14px; /* Margen horizontal entre los enlaces */
+}
+
+/* Estilo del formulario */
+form {
+    background-color: #fff; /* Color de fondo */
+    border: 1px solid #dbdbdb; /* Borde */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 40px; /* Espacio interno */
+    width: 300px; /* Ancho del formulario */
+    height: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+/* Estilo de los campos de entrada */
+input[type="email"],
+input[type="submit"] {
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Espacio interno */
+    margin-bottom: 15px; /* Espacio inferior */
+    border: 1px solid #dbdbdb; /* Borde */
+    border-radius: 4px; /* Bordes redondeados */
+    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
+}
+
+/* Estilo del botón */
+input[type="submit"] {
+    margin-bottom: 50px;
+    background-color: #ff7800; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    cursor: pointer; /* Cambia el cursor al pasar */
+}
+
+input[type="submit"]:hover {
+    background-color: #e2a56f; /* Color de fondo al pasar */
+}
+
+
+
+
