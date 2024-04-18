@@ -8,7 +8,7 @@ body {
     height: 100vh;
     margin: 0;
 }
-
+/* Dropdown todavia no funciona y es opcional  */
 .dropdown {
     position: relative;
     display: inline-block;
