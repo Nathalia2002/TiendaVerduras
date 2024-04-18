@@ -57,3 +57,13 @@
     // Por ejemplo:
     window.location.href = 'recuperar-contrasena.html';
   };
+ 
+  // Para diferenciar un administrador de un comprador 
+  function register() {
+    var userType = document.getElementById('userType').value;
+    if (userType === 'administrador') {
+        window.location.href = 'admin.html';
+    } else {
+        window.location.href = 'comprador.html';
+    }
+}
