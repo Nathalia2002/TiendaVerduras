@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrador</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="wrapper">
@@ -23,16 +26,16 @@
             <nav>
                 <ul class="menu">
                     <li>
-                        <button id="Productos" class="boton-menu boton-categoria active"><i class="bi bi-hand-index-thumb-fill"></i> Productos</button>
+                        <button id="Productos" class="boton-menu boton-categoria active"><i class="bi bi-bag-plus"></i> Productos</button>
                     </li>
                     <li>
-                        <button id="Configuraciones" class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i> Configuraciones</button>
+                        <button id="Configuraciones" class="boton-menu boton-categoria"><i class="bi bi-gear"></i> Configuraciones</button>
                     </li>
                     <li>
-                        <button id="Billetera" class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i> Billetera</button>
+                        <button id="Billetera" class="boton-menu boton-categoria"><i class="bi bi-wallet"></i> Billetera</button>
                     </li>
                     <li>
-                        <button id="Mensajes" class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i>Mensajes</button>
+                        <button id="Mensajes" class="boton-menu boton-categoria"><i class="bi bi-chat-left-dots-fill"></i></i>Mensajes <span class="Numerito"></span></button>
                     </li>
                 </ul>
             </nav>
@@ -44,9 +47,34 @@
         <main>
             <h2 class="titulo-principal" id="titulo-principal">Todos los productos</h2>
             <div id="contenedor-productos" class="contenedor-productos">
+                 <!-- Este funciona pare agregar un producto nuevo a la venta -->
+                <form id="formulario-producto">
+                    <div>
+                        <label for="nombre-producto">Nombre del producto:</label>
+                        <input type="text" id="nombre-producto" name="nombre-producto" required>
+                    </div>
+                    <div>
+                        <label for="precio-producto">Precio:</label>
+                        <input type="number" id="precio-producto" name="precio-producto" step="0.01" required>
+                    </div>
+                    <div>
+                        <label for="cantidad-producto">Cantidad:</label>
+                        <input type="number" id="cantidad-producto" name="cantidad-producto" min="1" required>
+                    </div>
+                    <div>
+                        <label for="imagen-producto">Imagen:</label>
+                        <input type="file" id="imagen-producto" name="imagen-producto" accept="image/*" required>
+                    </div>
+                    <button type="submit">Agregar producto</button>
+                </form>
+
                 <!-- Esto se va a rellenar con JS -->
             </div>
         </main>
     </div>
+
+
+
+    <script src="js/agregarpro.js"></script>
 </body>
 </html>
