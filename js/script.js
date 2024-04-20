@@ -15,17 +15,6 @@ document.querySelector('#cart-btn').onclick = () =>{
     loginForm.classList.remove('active');
     navbar.classList.remove('active');
 }
-//
-//login
-
-let loginForm = document.querySelector('.login-form');
-
-document.querySelector('#login-btn').onclick = () =>{
-    loginForm.classList.toggle('active');
-    searchForm.classList.remove('active');
-    shoppingCart.classList.remove('active');
-    navbar.classList.remove('active');
-}
 
 document.addEventListener("DOMContentLoaded", function () {
   // Agregar producto al carrito
@@ -47,7 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
       $(".total").text("total : $" + total.toFixed(2));
   });
 });
-
 
 
 // Selecciona todos los botones "añadir al carrito"
@@ -139,4 +127,28 @@ var swiper = new Swiper(".review-slider", {
         slidesPerView: 3,
       },
     },
+});
+
+//sesioniniciada
+// Escucha el evento de estado de autenticación de Firebase
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+      // El usuario ha iniciado sesión
+      var email = user.email;
+      document.getElementById('welcome-message').innerText = 'Bienvenido, ' + email;
+      document.getElementById('user-email').innerText = 'Correo electrónico: ' + email;
+      document.getElementById('sign-out').addEventListener('click', function() {
+          firebase.auth().signOut().then(function() {
+              // Se cerró sesión exitosamente
+              window.location.href = 'iniciar-sesion.html'; // Redirigir a la página de inicio de sesión
+          }).catch(function(error) {
+              // Hubo un error al cerrar sesión
+              console.error('Error al cerrar sesión:', error);
+          });
+      });
+  } else {
+      // No hay usuario iniciado sesión
+      // Redirigir a la página de inicio de sesión
+      window.location.href = 'iniciar-sesion.html';
+  }
 });

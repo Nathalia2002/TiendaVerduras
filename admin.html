@@ -3,104 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrador</title>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/admin.css">
+    <title>Panel de Administrador</title>
+    <link rel="stylesheet" href="styles/admin.css">
 </head>
 <body>
-    <div class="wrapper">
-        <header class="header-mobile">
-            <h1 class="logo">PuraVidaDelivery</h1>
-            <button class="open-menu" id="open-menu">
-                <i class="bi bi-list"></i>
-            </button>
-        </header>
-        <aside>
-            <button class="close-menu" id="close-menu">
-                <i class="bi bi-x"></i>
-            </button>
-            <header>
-                <h1 class="logo">PuraVidaDelivery</h1>
-            </header>
-            <nav>
-                <ul class="menu">
-                    <li>
-                        <button id="Productos" class="boton-menu boton-categoria active"><i class="bi bi-bag-plus"></i> Productos</button>
-                    </li>
-                    <li>
-                        <button id="Configuraciones" class="boton-menu boton-categoria"><i class="bi bi-gear"></i> Configuraciones</button>
-                    </li>
-                    <li>
-                        <button id="Billetera" class="boton-menu boton-categoria"><i class="bi bi-wallet"></i> Billetera</button>
-                    </li>
-                    <li>
-                        <button id="Mensajes" class="boton-menu boton-categoria"><i class="bi bi-chat-left-dots-fill"></i></i>Mensajes <span class="Numerito"></span></button>
-                    </li>
-                </ul>
-            </nav>
+    <div class="container">
+        <h1>Panel de Administrador</h1>
 
-            <footer>
-                <p class="texto-footer"> creado por <span> grupo 3 </span> | reservados todos los derechos</p>
-            </footer>
-        </aside>
-        <main>
-            <h2 class="titulo-principal" id="titulo-principal">Todos los productos</h2>
-            <div id="contenedor-productos" class="contenedor-productos">
-                 <!-- Este funciona pare agregar un producto nuevo a la venta -->
-                <form id="formulario-producto">
-                    <div>
-                        <label for="nombre-producto">Nombre del producto:</label>
-                        <input type="text" id="nombre-producto" name="nombre-producto" required>
-                    </div>
-                    <div>
-                        <label for="precio-producto">Precio:</label>
-                        <input type="number" id="precio-producto" name="precio-producto" step="0.01" required>
-                    </div>
-                    <div>
-                        <label for="cantidad-producto">Cantidad:</label>
-                        <input type="number" id="cantidad-producto" name="cantidad-producto" min="1" required>
-                    </div>
-                    <div>
-                        <label for="imagen-producto">Imagen:</label>
-                        <input type="file" id="imagen-producto" name="imagen-producto" accept="image/*" required>
-                    </div>
-                    <button type="submit">Agregar producto</button>
+        <!-- Botones de categoría -->
+        <div class="buttons-container">
+            <button onclick="mostrarCategoria('datos')">Datos de Administrador</button>
+            <button onclick="mostrarCategoria('productos')">Administrar Productos</button>
+            <button onclick="mostrarCategoria('ventas')">Resumen de Ventas</button>
+        </div>
+
+        <!-- Contenido de categoría -->
+        <div id="datos" class="categoria active">
+            <div class="categoria-content">
+                <h2>Datos de Administrador</h2>
+                <form action="guardar_admin.php" method="POST">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" value="Nombre del administrador">
+
+                    <label for="apellido1">Primer Apellido:</label>
+                    <input type="text" id="apellido1" name="apellido1" value="Primer apellido del administrador">
+
+                    <label for="apellido2">Segundo Apellido:</label>
+                    <input type="text" id="apellido2" name="apellido2" value="Segundo apellido del administrador">
+
+                    <label for="correo">Correo electrónico:</label>
+                    <input type="email" id="correo" name="correo" value="admin@example.com">
+
+                    <input type="submit" value="Guardar">
+                    
                 </form>
-
-                <!-- Esto se va a rellenar con JS -->
             </div>
-            <div id="configuraciones" class="configuraciones">
-                <h2>Configuraciones</h2>
-                <div class="configuracion">
-                  <label for="tamano-letras">Tamaño de letras:</label>
-                  <input type="range" id="tamano-letras" name="tamano-letras" min="12" max="24" value="16">
-                </div>
-                <div class="configuracion">
-                  <label for="tema">Tema:</label>
-                  <label class="switch">
-                    <input type="checkbox" id="tema">
-                    <span class="slider"></span>
-                  </label>
-                </div>
-                <div class="configuracion">
-                  <h3>Seguridad</h3>
-                  <div class="configuracion">
-                    <label for="cambiar-contrasena">Cambiar contraseña:</label>
-                    <button id="cambiar-contrasena">Cambiar</button>
-                  </div>
-                  <div class="configuracion">
-                    <label for="autenticacion-dos-factores">Autenticación de dos factores:</label>
-                    <input type="checkbox" id="autenticacion-dos-factores">
-                  </div>
-                </div>
-              </div>
-        </main>
+        </div>
+
+        <div id="productos" class="categoria">
+            <div class="categoria-content">
+                <h2>Administrar Productos</h2>
+                <a href="agregar_producto.php">Agregar Producto</a>
+                <table>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                    <!-- Aquí se listarían los productos desde la base de datos -->
+                    <tr>
+                        <td>Producto 1</td>
+                        <td>$10.00</td>
+                        <td>
+                            <a href="editar_producto.php?id=1">Editar</a>
+                            <a href="eliminar_producto.php?id=1">Eliminar</a>
+                        </td>
+                    </tr>
+                    <!-- Más filas de productos -->
+                </table>
+            </div>
+        </div>
+
+        <div id="ventas" class="categoria">
+            <div class="categoria-content">
+                <h2>Resumen de Ventas</h2>
+                <table>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Total</th>
+                    </tr>
+                    <!-- Aquí se listarían las ventas desde la base de datos -->
+                    <tr>
+                        <td>Producto 1</td>
+                        <td>3</td>
+                        <td>$30.00</td>
+                    </tr>
+                    <!-- Más filas de ventas -->
+                </table>
+            </div>
+        </div>
     </div>
 
-
-
-    <script src="js/agregarpro.js"></script>
+    <!-- Scripts -->
+    <script src="js/admin.js"></script>
 </body>
 </html>
