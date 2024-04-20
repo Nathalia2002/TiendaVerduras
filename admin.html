@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
     <div class="wrapper">
@@ -70,6 +71,31 @@
 
                 <!-- Esto se va a rellenar con JS -->
             </div>
+            <div id="configuraciones" class="configuraciones">
+                <h2>Configuraciones</h2>
+                <div class="configuracion">
+                  <label for="tamano-letras">Tamaño de letras:</label>
+                  <input type="range" id="tamano-letras" name="tamano-letras" min="12" max="24" value="16">
+                </div>
+                <div class="configuracion">
+                  <label for="tema">Tema:</label>
+                  <label class="switch">
+                    <input type="checkbox" id="tema">
+                    <span class="slider"></span>
+                  </label>
+                </div>
+                <div class="configuracion">
+                  <h3>Seguridad</h3>
+                  <div class="configuracion">
+                    <label for="cambiar-contrasena">Cambiar contraseña:</label>
+                    <button id="cambiar-contrasena">Cambiar</button>
+                  </div>
+                  <div class="configuracion">
+                    <label for="autenticacion-dos-factores">Autenticación de dos factores:</label>
+                    <input type="checkbox" id="autenticacion-dos-factores">
+                  </div>
+                </div>
+              </div>
         </main>
     </div>
 
