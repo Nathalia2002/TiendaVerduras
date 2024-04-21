@@ -176,7 +176,10 @@ section{
     width:35rem;
     background: #fff;
 }
-
+.shopping-cart {
+    overflow-y: auto;
+    max-height: 300px; /* Set the maximum height of the shopping cart */
+  }
 .header .shopping-cart.active{
     right:2rem;
     transition: .4s linear;
