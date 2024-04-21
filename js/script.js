@@ -16,59 +16,93 @@ document.querySelector('#cart-btn').onclick = () =>{
     navbar.classList.remove('active');
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Agregar producto al carrito
-  $(".btn-agregar").on("click", function () {
-      var producto = $(this).closest(".box");
-      var precio = parseFloat(producto.find(".price").text().replace("$", "").split("-")[0]); // Tomar solo el precio más bajo si hay un rango
-      var total = parseFloat($(".total").text().replace("total : $", ""));
-      total += precio;
-      $(".total").text("total : $" + total.toFixed(2));
-  });
-
-  // Eliminar producto del carrito
-  $(".fa-trash").on("click", function () {
-      var producto = $(this).closest(".box");
-      var precio = parseFloat(producto.find(".price").text().replace("$", "").split("-")[0]); // Tomar solo el precio más bajo si hay un rango
-      var total = parseFloat($(".total").text().replace("total : $", ""));
-      total -= precio;
-      producto.remove();
-      $(".total").text("total : $" + total.toFixed(2));
-  });
-});
-
-
-// Selecciona todos los botones "añadir al carrito"
+// Seleccionar elementos del DOM
 const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+const cartItemsContainer = document.querySelector('.shopping-cart');
+const cartTotal = document.querySelector('.total');
 
-// Itera sobre cada botón y agrega un event listener para el clic
-addToCartButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        // Obtén el contenedor del producto actual
-        const productContainer = button.closest('.box');
+// Array para almacenar los elementos del carrito
+let cartItems = [];
 
-        // Extrae la información del producto desde el contenedor
-        const productName = productContainer.querySelector('h3').innerText;
-        const productPrice = productContainer.querySelector('.price').innerText;
-
-        // Crea un nuevo elemento para representar el producto en el carrito
+// Función para actualizar el carrito
+function updateCart() {
+    cartItemsContainer.innerHTML = '';
+    cartItems.forEach(item => {
         const cartItem = document.createElement('div');
-        cartItem.classList.add('box');
+        cartItem.classList.add('cart-item');
         cartItem.innerHTML = `
-            <i class="fas fa-trash"></i>
-            <img src="image/${productName.toLowerCase().replace(' ', '-')}.png" alt="${productName}">
-            <div class="content">
-                <h3>${productName}</h3>
-                <span class="price">${productPrice}</span>
-                <span class="quantity">cantidad: 1</span>
+            <img src="${item.image}" alt="${item.name}">
+            <div>
+                <h4>${item.name}</h4>
+                <h5>$${item.price.toFixed(2)}</h5>
+                <span class="remove-item" data-id="${item.id}">Eliminar</span>
+            </div>
+            <div>
+                <button class="increase-quantity" data-id="${item.id}">+</button>
+                <span class="quantity">${item.quantity}</span>
+                <button class="decrease-quantity" data-id="${item.id}">-</button>
             </div>
         `;
+        cartItemsContainer.appendChild(cartItem);
+    });
 
-        // Agrega el nuevo elemento al contenedor del carrito
-        const cartContainer = document.querySelector('.shopping-cart');
-        cartContainer.insertBefore(cartItem, cartContainer.lastElementChild.previousElementSibling);
+    // Calcular y mostrar el total del carrito
+    const total = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+    cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+}
+
+// Event listener para añadir un producto al carrito
+addToCartButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+        const productContainer = button.closest('.box');
+        const product = {
+            id: Date.now(), // ID único, puedes generar uno mejor
+            name: productContainer.querySelector('h3').textContent,
+            price: parseFloat(productContainer.querySelector('.price').textContent.replace('$', '').split('-')[0]),
+            image: productContainer.querySelector('img').src,
+            quantity: 1
+        };
+        const existingItem = cartItems.find(item => item.id === product.id);
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            cartItems.push(product);
+        }
+        updateCart();
     });
 });
+
+// Event listener para eliminar un producto del carrito
+cartItemsContainer.addEventListener('click', event => {
+    if (event.target.classList.contains('remove-item')) {
+        const itemId = parseInt(event.target.dataset.id);
+        cartItems = cartItems.filter(item => item.id !== itemId);
+        updateCart();
+    }
+});
+
+// Event listener para aumentar/disminuir la cantidad de un producto en el carrito
+cartItemsContainer.addEventListener('click', event => {
+    if (event.target.classList.contains('increase-quantity')) {
+        const itemId = parseInt(event.target.dataset.id);
+        const item = cartItems.find(item => item.id === itemId);
+        item.quantity++;
+        updateCart();
+    }
+    if (event.target.classList.contains('decrease-quantity')) {
+        const itemId = parseInt(event.target.dataset.id);
+        const item = cartItems.find(item => item.id === itemId);
+        if (item.quantity > 1) {
+            item.quantity--;
+        }
+        updateCart();
+    }
+});
+
+// Llamar a updateCart() al cargar la página para mostrar los elementos del carrito si hay alguno
+updateCart();
+
 
 
 let navbar = document.querySelector('.navbar');

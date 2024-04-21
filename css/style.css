@@ -352,6 +352,12 @@ section{
     padding:1rem 0;
 }
 
+/* Estilos CSS para el carrito de compras */
+.cart-item img {
+    max-width: 100px; /* Establecer un ancho máximo para las imágenes del carrito */
+    height: auto; /* Para mantener la proporción de la imagen */
+}
+
 .products .product-slider{
     padding:1rem;
 }
