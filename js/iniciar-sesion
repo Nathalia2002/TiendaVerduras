@@ -32,3 +32,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
         alert('Hubo un error al iniciar sesión. Por favor, inténtelo de nuevo.');
     });
 });
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);

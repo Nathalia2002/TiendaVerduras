@@ -30,3 +30,7 @@ document.getElementById('forgot-password-form').addEventListener('submit', funct
         alert('Hubo un error al enviar el correo electrónico para restablecer la contraseña. Por favor, inténtelo de nuevo.');
     });
 });
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
