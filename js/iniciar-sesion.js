@@ -34,6 +34,32 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     });
 });
 
+// Función para agregar una persona a la base de datos
+function agregarPersona(usuario) {
+    // Obtener una referencia a la colección "personas" en la base de datos
+    const db = firebase.firestore();
+    const personasRef = db.collection('Usuarios');
+  
+    // Agregar la persona a la colección "personas"
+    personasRef.add({
+      nombre: usuario.nombre,
+      contrasena : usuario.contrasena,
+      correo : usuario.correo,
+      tipo_usuario: usuario.tipo_usuario,
+      
+    })
+   .then(() => {
+      // Mostrar un mensaje de éxito
+      console.log('Persona agregada exitosamente');
+    })
+   .catch((error) => {
+      // Mostrar un mensaje de error
+      console.error('Error al agregar la persona:', error);
+    });
+  }
+  
+  agregarPersona(persona);
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
