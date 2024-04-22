@@ -2,7 +2,7 @@
 
 /* Estilo general del cuerpo */
 body {
-    background-color: #fafafa;
+    background-color: #262738;
     display: flex;
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
@@ -13,7 +13,8 @@ body {
 h1{
     margin-bottom: 30px; 
     text-align: center;
-    font-size: 30px; 
+    font-size: 30px;
+    color: #fff; 
     display: block; /* Para que cada label ocupe toda la anchura del formulario */
 }
 
@@ -22,6 +23,7 @@ h2{
     text-align: center;
     font-size: 15px;
     display: block;
+    color: #fff;
 }
 
 a {
@@ -29,12 +31,13 @@ a {
     font-weight: bold; /* Texto en negrita */
     display: inline-block; /* Para que los enlaces estén en línea */
     margin: 0 14px; /* Margen horizontal entre los enlaces */
+    color: #fff;
 }
 
 /* Estilo del formulario */
 form {
-    background-color: #fff; 
-    border: 1px solid #dbdbdb; 
+    background-color: #161622; 
+    border: 1px solid #251836; 
     border-radius: 4px; /* Bordes redondeados */
     padding: 40px; /* Espacio interno */
     width: 300px; /* Ancho del formulario */
@@ -48,7 +51,9 @@ input[type="submit"] {
     width: 100%; 
     padding: 10px; 
     margin-bottom: 15px; /* Espacio inferior */
-    border: 1px solid #dbdbdb; 
+    border: 1px solid #251836;
+    background-color: #161622;
+    color: aliceblue; 
     border-radius: 4px; 
     box-sizing: border-box; 
 }
@@ -56,13 +61,13 @@ input[type="submit"] {
 /* Estilo del botón */
 input[type="submit"] {
     margin-bottom: 50px;
-    background-color: #ff7800; 
+    background-color: #E6506E; 
     color: #fff; 
     cursor: pointer; /* Cambia el cursor al pasar */
 }
 
 input[type="submit"]:hover {
-    background-color: #e2a56f; /* Color de fondo al pasar */
+    background-color: #e63e19; /* Color de fondo al pasar */
 }
 
 

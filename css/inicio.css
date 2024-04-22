@@ -1,14 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    background-color: #262738;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    color: #fff;
 }
 
 header {
@@ -43,7 +45,7 @@ p {
     display: inline-block;
     padding: 10px 20px;
     margin: 0 10px;
-    background-color: #ff6347;
+    background-color: #E6506E;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;

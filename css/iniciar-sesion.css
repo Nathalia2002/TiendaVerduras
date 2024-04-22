@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
 body {
-    background-color: #fafafa; 
+    background-color: #262738; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,8 +9,8 @@ body {
 }
 
 .login-form {
-    background-color: #fff;
-    border: 1px solid #dbdbdb;
+    background-color: #161622;
+    border: 1px solid #251836;
     border-radius: 4px;
     padding: 20px;
     width: 300px;
@@ -22,7 +23,7 @@ body {
     text-align: center;
     font-size: 20px; 
     font-weight: bold; /* Texto en negrita */
-    color: #ff7800;
+    color: #fff;
     display: block; /* Para que cada label ocupe toda la anchura del formulario */
 }
 
@@ -31,12 +32,15 @@ body {
     text-align: center;
     font-size: 13px; /* Tamaño de fuente grande */
     display: block; 
+    color: #fff;
+    cursor:default;
 }
 
 .login-form a {
     display: block; /* Para que el enlace ocupe toda la anchura del formulario */
     text-align: center; /* Para centrar el texto */
     font-weight: bold; 
+    color: #fff;
 }
 
 input[type="email"],
@@ -45,18 +49,19 @@ input[type="submit"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #dbdbdb;
+    border: 1px solid #251836;
     border-radius: 4px;
-    background-color: #fafafa;
+    background-color: #161622;
+    color: aliceblue;
     box-sizing: border-box; /* Para incluir el padding y el borde en el ancho total */
 }
 
 input[type="submit"] {
-    background-color: #ff7800; /* Color de fondo del botón */
+    background-color: #E6506E; /* Color de fondo del botón */
     color: #fff; /* Color del texto del botón */
     cursor: pointer;
 }
 
 input[type="submit"]:hover {
-    background-color: #e2a56f; /* Color de fondo del botón al pasar el cursor */
+    background-color: #e63e19; /* Color de fondo del botón al pasar el cursor */
 }
