@@ -10,9 +10,8 @@ document.getElementById("login-form").addEventListener("submit", (event) => {
 
   const account = new ManageAccount();
   account.authenticate(email, password);
-  
+  alert("Registro exitoso. Serás redirigido a la página de inicio de sesión.");
 });
-
 console.log('Formulario de Inicio de Sesión');
 
 /*document.getElementById('login-form').addEventListener('submit', function(event) {

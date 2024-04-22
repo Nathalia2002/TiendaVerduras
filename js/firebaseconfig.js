@@ -26,11 +26,16 @@ export class ManageAccount {
         window.location.href = "crear-cuenta.html";
         // Mostrar alerta de registro exitoso
         alert("Registro exitoso. Serás redirigido a la página de inicio de sesión.");
+        console.log(name, email, password,userType);
+        console.log(auth.currentUser.uid);
+        console.log("se realizo la accion pero no se registro..")
       })
       .catch((error) => {
         console.error(error.message);
             // Mostrar alerta de error de registro
             alert("Error al registrar: " + error.message);
+            console.log(name, email, password,userType);
+            console.log("se realizo la accion pero di error..")
       });
   }
 
