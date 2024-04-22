@@ -32,6 +32,7 @@ const firebaseConfig = {
            }
        });
        if (!userFound) { // Si el usuario no se encuentra, muestra el mensaje de error
+        document.getElementById('login-error').innerText = 'Contraseña incorrecta';
            document.getElementById('login-error').style.display = 'block';
        }
    })

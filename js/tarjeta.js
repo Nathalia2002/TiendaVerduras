@@ -1,125 +1,146 @@
 const tarjeta = document.querySelector('#tarjeta'),
-	  btnAbrirFormulario = document.querySelector('#btn-abrir-formulario'),
-	  formulario = document.querySelector('#formulario-tarjeta'),
-	  numeroTarjeta = document.querySelector('#tarjeta .numero'),
-	  nombreTarjeta = document.querySelector('#tarjeta .nombre'),
-	  logoMarca = document.querySelector('#logo-marca'),
-	  firma = document.querySelector('#tarjeta .firma p'),
-	  mesExpiracion = document.querySelector('#tarjeta .mes'),
-	  yearExpiracion = document.querySelector('#tarjeta .year');
-	  ccv = document.querySelector('#tarjeta .ccv');
+    btnAbrirFormulario = document.querySelector('#btn-abrir-formulario'),
+    formulario = document.querySelector('#formulario-tarjeta'),
+    numeroTarjeta = document.querySelector('#tarjeta .numero'),
+    nombreTarjeta = document.querySelector('#tarjeta .nombre'),
+    logoMarca = document.querySelector('#logo-marca'),
+    firma = document.querySelector('#tarjeta .firma p'),
+    mesExpiracion = document.querySelector('#tarjeta .mes'),
+    yearExpiracion = document.querySelector('#tarjeta .year');
+ccv = document.querySelector('#tarjeta .ccv');
 
-// * Volteamos la tarjeta para mostrar el frente.
+// Función para mostrar la ventana emergente
+function mostrarMensaje() {
+    alert("Pago efectuado correctamente");
+}
+
+// Función para redirigir al usuario al HTML index
+function redirigirAIndex() {
+    window.location.href = "index.html";
+}
+
+// Volteamos la tarjeta para mostrar el frente.
 const mostrarFrente = () => {
-	if(tarjeta.classList.contains('active')){
-		tarjeta.classList.remove('active');
-	}
+    if (tarjeta.classList.contains('active')) {
+        tarjeta.classList.remove('active');
+    }
 }
 
-// * Rotacion de la tarjeta
+// Rotacion de la tarjeta
 tarjeta.addEventListener('click', () => {
-	tarjeta.classList.toggle('active');
+    tarjeta.classList.toggle('active');
 });
 
-// * Boton de abrir formulario
+// Boton de abrir formulario
 btnAbrirFormulario.addEventListener('click', () => {
-	btnAbrirFormulario.classList.toggle('active');
-	formulario.classList.toggle('active');
+    btnAbrirFormulario.classList.toggle('active');
+    formulario.classList.toggle('active');
 });
 
-// * Select del mes generado dinamicamente.
-for(let i = 1; i <= 12; i++){
-	let opcion = document.createElement('option');
-	opcion.value = i;
-	opcion.innerText = i;
-	formulario.selectMes.appendChild(opcion);
+// Select del mes generado dinamicamente.
+for (let i = 1; i <= 12; i++) {
+    let opcion = document.createElement('option');
+    opcion.value = i;
+    opcion.innerText = i;
+    formulario.selectMes.appendChild(opcion);
 }
 
-// * Select del año generado dinamicamente.
+// Select del año generado dinamicamente.
 const yearActual = new Date().getFullYear();
-for(let i = yearActual; i <= yearActual + 8; i++){
-	let opcion = document.createElement('option');
-	opcion.value = i;
-	opcion.innerText = i;
-	formulario.selectYear.appendChild(opcion);
+for (let i = yearActual; i <= yearActual + 8; i++) {
+    let opcion = document.createElement('option');
+    opcion.value = i;
+    opcion.innerText = i;
+    formulario.selectYear.appendChild(opcion);
 }
 
-// * Input numero de tarjeta
+// Input numero de tarjeta
 formulario.inputNumero.addEventListener('keyup', (e) => {
-	let valorInput = e.target.value;
+    let valorInput = e.target.value;
 
-	formulario.inputNumero.value = valorInput
-	// Eliminamos espacios en blanco
-	.replace(/\s/g, '')
-	// Eliminar las letras
-	.replace(/\D/g, '')
-	// Ponemos espacio cada cuatro numeros
-	.replace(/([0-9]{4})/g, '$1 ')
-	// Elimina el ultimo espaciado
-	.trim();
+    formulario.inputNumero.value = valorInput
+        // Eliminamos espacios en blanco
+        .replace(/\s/g, '')
+        // Eliminar las letras
+        .replace(/\D/g, '')
+        // Ponemos espacio cada cuatro numeros
+        .replace(/([0-9]{4})/g, '$1 ')
+        // Elimina el ultimo espaciado
+        .trim();
 
-	numeroTarjeta.textContent = valorInput;
+    numeroTarjeta.textContent = valorInput;
 
-	if(valorInput == ''){
-		numeroTarjeta.textContent = '#### #### #### ####';
+    if (valorInput == '') {
+        numeroTarjeta.textContent = '#### #### #### ####';
 
-		logoMarca.innerHTML = '';
-	}
+        logoMarca.innerHTML = '';
+    }
 
-	if(valorInput[0] == 4){
-		logoMarca.innerHTML = '';
-		const imagen = document.createElement('img');
-		imagen.src = 'image/visa.png';
-		logoMarca.appendChild(imagen);
-	} else if(valorInput[0] == 5){
-		logoMarca.innerHTML = '';
-		const imagen = document.createElement('img');
-		imagen.src = 'img/logos/mastercard.png';
-		logoMarca.appendChild(imagen);
-	}
+    if (valorInput[0] == 4) {
+        logoMarca.innerHTML = '';
+        const imagen = document.createElement('img');
+        imagen.src = 'image/visa.png';
+        logoMarca.appendChild(imagen);
+    } else if (valorInput[0] == 5) {
+        logoMarca.innerHTML = '';
+        const imagen = document.createElement('img');
+        imagen.src = 'img/logos/mastercard.png';
+        logoMarca.appendChild(imagen);
+    }
 
-	// Volteamos la tarjeta para que el usuario vea el frente.
-	mostrarFrente();
+    // Volteamos la tarjeta para que el usuario vea el frente.
+    mostrarFrente();
 });
 
-// * Input nombre de tarjeta
+// Input nombre de tarjeta
 formulario.inputNombre.addEventListener('keyup', (e) => {
-	let valorInput = e.target.value;
+    let valorInput = e.target.value;
 
-	formulario.inputNombre.value = valorInput.replace(/[0-9]/g, '');
-	nombreTarjeta.textContent = valorInput;
-	firma.textContent = valorInput;
+    formulario.inputNombre.value = valorInput.replace(/[0-9]/g, '');
+    nombreTarjeta.textContent = valorInput;
+    firma.textContent = valorInput;
 
-	if(valorInput == ''){
-		nombreTarjeta.textContent = 'Jhon Doe';
-	}
+    if (valorInput == '') {
+        nombreTarjeta.textContent = 'Jhon Doe';
+    }
 
-	mostrarFrente();
+    mostrarFrente();
 });
 
-// * Select mes
+// Select mes
 formulario.selectMes.addEventListener('change', (e) => {
-	mesExpiracion.textContent = e.target.value;
-	mostrarFrente();
+    mesExpiracion.textContent = e.target.value;
+    mostrarFrente();
 });
 
-// * Select Año
+// Select Año
 formulario.selectYear.addEventListener('change', (e) => {
-	yearExpiracion.textContent = e.target.value.slice(2);
-	mostrarFrente();
+    yearExpiracion.textContent = e.target.value.slice(2);
+    mostrarFrente();
 });
 
-// * CCV
+// CCV
 formulario.inputCCV.addEventListener('keyup', () => {
-	if(!tarjeta.classList.contains('active')){
-		tarjeta.classList.toggle('active');
-	}
+    if (!tarjeta.classList.contains('active')) {
+        tarjeta.classList.toggle('active');
+    }
 
-	formulario.inputCCV.value = formulario.inputCCV.value
-	// Eliminar los espacios
-	.replace(/\s/g, '')
-	// Eliminar las letras
-	.replace(/\D/g, '');
+    formulario.inputCCV.value = formulario.inputCCV.value
+        // Eliminar los espacios
+        .replace(/\s/g, '')
+        // Eliminar las letras
+        .replace(/\D/g, '');
 
-	ccv.textContent = formulario.inputCCV.value;
+    ccv.textContent = formulario.inputCCV.value;
+});
+
+// Evento submit del formulario
+formulario.addEventListener('submit', (event) => {
+    event.preventDefault(); // Evitar que se envíe el formulario
+
+    // Mostrar mensaje de pago efectuado correctamente
+    mostrarMensaje();
+
+    // Redirigir al usuario al HTML index después de un breve retraso (por ejemplo, 3 segundos)
+    setTimeout(redirigirAIndex, 2000);
 });
