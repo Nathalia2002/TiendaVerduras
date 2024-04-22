@@ -18,7 +18,7 @@ document.querySelector('#cart-btn').onclick = () =>{
 
 // Seleccionar elementos del DOM
 const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
-const cartItemsContainer = document.querySelector('.shopping-cart');
+const cartItemsContainer = document.querySelector('.cart-items');
 const cartTotal = document.querySelector('.total');
 
 // Array para almacenar los elementos del carrito
