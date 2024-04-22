@@ -30,6 +30,8 @@ document.getElementById('signup-form').addEventListener('submit', function(event
     })
     .then(() => {
         console.log("Document successfully written!");
+        // Mostrar mensaje de éxito
+        document.getElementById('signup-success').style.display = 'block';
     })
     .catch((error) => {
         console.error("Error writing document: ", error);
