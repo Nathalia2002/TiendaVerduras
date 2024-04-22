@@ -10,6 +10,8 @@ document.getElementById("login-form").addEventListener("submit", (event) => {
 
   const account = new ManageAccount();
   account.authenticate(email, password);
+  /* para controlar el cache*/
+  res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
   alert("Registro exitoso. Serás redirigido a la página de inicio de sesión.");
 });
 console.log('Formulario de Inicio de Sesión');

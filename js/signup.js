@@ -13,6 +13,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
             const account = new ManageAccount();
             account.register(name,email,password,userType);
+
+             /* para controlar el cache*/
+              res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
         });
     }
 });
