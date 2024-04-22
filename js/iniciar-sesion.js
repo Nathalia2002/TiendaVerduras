@@ -19,21 +19,25 @@ const firebaseConfig = {
       var password = document.getElementById('password').value;
   
       // Buscar el usuario en Firestore
-      db.collection("users").where("email", "==", email).get()
-          .then((querySnapshot) => {
-              querySnapshot.forEach((doc) => {
-                  // doc.data() is never undefined for query doc snapshots
-                  var user = doc.data();
-                  if (user.password === password) {
-                      console.log("User logged in successfully!");
-                      window.location.href = "index.html";
-                  } else {
-                      console.log("Incorrect password.");
-                  }
-              });
-          })
-          .catch((error) => {
-              console.log("Error getting documents: ", error);
-          });
-  });
+   db.collection("users").where("email", "==", email).get()
+   .then((querySnapshot) => {
+       let userFound = false; // Variable para rastrear si se encuentra el usuario
+       querySnapshot.forEach((doc) => {
+           // doc.data() is never undefined for query doc snapshots
+           var user = doc.data();
+           if (user.password === password) {
+               console.log("User logged in successfully!");
+               window.location.href = "index.html";
+               userFound = true; // Marcar que se encontró el usuario
+           }
+       });
+       if (!userFound) { // Si el usuario no se encuentra, muestra el mensaje de error
+           document.getElementById('login-error').style.display = 'block';
+       }
+   })
+   .catch((error) => {
+       console.log("Error getting documents: ", error);
+   });
+});
+
   
