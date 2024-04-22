@@ -1,5 +1,21 @@
+import { ManageAccount } from './firebaseconfig.js';
 
-document.getElementById('login-form').addEventListener('submit', function(event) {
+document.getElementById("login-form").addEventListener("submit", (event) => {
+  event.preventDefault();
+  
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const userType = document.getElementById("userType").value;
+
+  const account = new ManageAccount();
+  account.authenticate(email, password);
+  
+});
+
+console.log('Formulario de Inicio de Sesión');
+
+/*document.getElementById('login-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Evitar el comportamiento predeterminado del formulario
 
     // Capturar los valores de los campos del formulario
@@ -34,32 +50,39 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     });
 });
 
-// Función para agregar una persona a la base de datos
-function agregarPersona(usuario) {
-    // Obtener una referencia a la colección "personas" en la base de datos
-    const db = firebase.firestore();
-    const personasRef = db.collection('Usuarios');
-  
-    // Agregar la persona a la colección "personas"
-    personasRef.add({
-      nombre: usuario.nombre,
-      contrasena : usuario.contrasena,
-      correo : usuario.correo,
-      tipo_usuario: usuario.tipo_usuario,
-      
-    })
-   .then(() => {
-      // Mostrar un mensaje de éxito
-      console.log('Persona agregada exitosamente');
-    })
-   .catch((error) => {
-      // Mostrar un mensaje de error
-      console.error('Error al agregar la persona:', error);
-    });
-  }
-  
-  agregarPersona(persona);
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+
+
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+
+// Agregar el listener al formulario de inicio de sesión
+document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evitar el comportamiento predeterminado del formulario
+
+    // Capturar los valores de los campos del formulario
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    // Verificar las credenciales con Firebase
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+       .then((userCredential) => {
+            // Inicio de sesión exitoso
+            const user = userCredential.user;
+            alert('¡Inicio de sesión exitoso!');
+            // Redirigir a la página principal u otra página
+            window.location.href = 'index.html';
+        })
+       .catch((error) => {
+            // Error al iniciar sesión
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(`Error al iniciar sesión: ${errorMessage}`);
+        });
+});*/

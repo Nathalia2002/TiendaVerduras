@@ -1,4 +1,47 @@
 
+import { ManageAccount } from './firebaseconfig.js';
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    const formElement = document.getElementById("create-account-link");
+    if(formElement) {
+        formElement.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const userType = document.getElementById("userType").value;
+
+            const account = new ManageAccount();
+            account.register(name,email,password,userType);
+        });
+    }
+});
+
+console.log('Formulario de Registro');
+
+
+
+window.addEventListener('DOMContentLoaded', (event) => {
+  const createAccountLink = document.getElementById('create-account-link');
+  if(createAccountLink) {
+      createAccountLink.addEventListener('click', function(event) {
+          event.preventDefault();
+          window.location.href = 'crear-cuenta.html';
+      });
+  }
+
+  const forgotPasswordLink = document.getElementById('forgot-password-link');
+  if(forgotPasswordLink) {
+      forgotPasswordLink.addEventListener('click', function(event) {
+          event.preventDefault();
+          window.location.href = 'olvidar-contrasena.html';
+      });
+  }
+});
+
+
+/*import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
   
   // signup.js
   
@@ -68,6 +111,35 @@
     }
 }
 
+// Función para agregar una persona a la base de datos
+function agregarPersona(usuario) {
+  // Obtener una referencia a la colección "personas" en la base de datos
+  const db = firebase.firestore();
+  const personasRef = db.collection('Usuarios');
+
+  // Agregar la persona a la colección "personas"
+  personasRef.add({
+    nombre: usuario.nombre,
+    contrasena : usuario.contrasena,
+    correo : usuario.correo,
+    tipo_usuario: usuario.tipo_usuario,
+    
+  })
+ .then(() => {
+    // Mostrar un mensaje de éxito
+    console.log('Persona agregada exitosamente');
+  })
+ .catch((error) => {
+    // Mostrar un mensaje de error
+    console.error('Error al agregar la persona:', error);
+  });
+}
+
+agregarPersona(persona);
+
+
+
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const analytics = getAnalytics(app);*/
