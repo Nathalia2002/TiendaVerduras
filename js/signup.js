@@ -2,7 +2,7 @@
 import { ManageAccount } from './firebaseconfig.js';
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    const formElement = document.getElementById("create-account-link");
+    const formElement = document.getElementById("signup-form");
     if(formElement) {
         formElement.addEventListener("submit", (event) => {
             event.preventDefault();
@@ -42,6 +42,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
   }
 });
 
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 /*import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
@@ -142,7 +144,5 @@ agregarPersona(persona);
 
 
 
-
+*/
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);*/
