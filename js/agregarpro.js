@@ -28,3 +28,7 @@ function agregarProducto(producto) {
      // Mostrar el formulario HTML
      document.getElementById('formulario-producto').style.display = 'block';
     });
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);

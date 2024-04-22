@@ -186,3 +186,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       window.location.href = 'iniciar-sesion.html';
   }
 });
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);

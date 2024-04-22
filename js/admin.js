@@ -5,3 +5,7 @@ function mostrarCategoria(categoria) {
     }
     document.getElementById(categoria).style.display = 'block';
 }
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
