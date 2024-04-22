@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
 
 :root{
-    --orange:#ff7800;
-    --black:#130f40;
-    --light-color:#666;
     --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
     --border:.2rem solid rgba(0,0,0,.1);
     --outline:.1rem solid rgba(0,0,0,.1);
@@ -28,7 +25,7 @@ html{
 }
 
 body{
-    background:#eee;
+    background:#262738;
     overflow-x: hidden;
 }
 
@@ -36,6 +33,7 @@ section{
     padding:2rem;
     margin: 0 auto;
     max-width: 1200px;
+    color:#fff
 }
 
 .heading{
@@ -43,11 +41,11 @@ section{
     padding:2rem 0;
     padding-bottom: 3rem;
     font-size: 3.5rem;
-    color:var(--black);
+    color:#fff;
 }
 
 .heading span{
-    background: var(--orange);
+    background: #E6506E;
     color:#fff;
     display: inline-block;
     padding:.5rem 3rem;
@@ -63,11 +61,11 @@ section{
     border:.2rem solid var(--black);
     color:var(--black);
     cursor: pointer;
-    background: none;
+    background: #E6506E;
 }
 
 .btn:hover{
-    background: var(--orange);
+    background: #e63e19;
     color:#fff;
 }
 
@@ -75,7 +73,7 @@ section{
     position: fixed;
     top:0; left:0; right: 0;
     z-index: 1000;
-    background:#fff;
+    background:#262738;
     box-shadow: var(--box-shadow);
 }
 
@@ -89,21 +87,21 @@ section{
 .header .logo{
     font-size: 2.5rem;
     font-weight: bolder;
-    color:var(--black);
+    color: #eee;
 }
 
 .header .logo i{
-    color:var(--orange);
+    color:#E6506E;
 }
 
 .header .navbar a{
     font-size: 1.7rem;
     margin:0 1rem;
-    color:var(--black);
+    color: #eee;
 }
 
 .header .navbar a:hover{
-    color:var(--orange);
+    background-color: #e63e19;
 }
 
 .header .icons div{
@@ -111,8 +109,8 @@ section{
     width: 4.5rem;
     line-height: 4.5rem;
     border-radius: .5rem;
-    background: #eee;
-    color:var(--black);
+    background: #E6506E;
+    color:#161622;
     font-size: 2rem;
     margin-left: .3rem;
     cursor: pointer;
@@ -122,6 +120,7 @@ section{
 .header .icons div:hover{
     background: var(--orange);
     color:#fff;
+    background-color: #e63e19;
 }
 
 #menu-btn{
@@ -159,12 +158,12 @@ section{
 .header .search-form label{
     font-size: 2.2rem;
     padding-right: 1.5rem;
-    color:var(--black);
+    color:#161622;
     cursor: pointer;
 }
 
 .header .search-form label:hover{
-    color:var(--orange);
+    color:#E6506E;
 }
 
 .header .shopping-cart{
@@ -175,6 +174,7 @@ section{
     box-shadow: var(--box-shadow);
     width:35rem;
     background: #fff;
+    color: #161622;
 }
 .shopping-cart {
     overflow-y: auto;
@@ -202,22 +202,22 @@ section{
     position: absolute;
     top:50%; right:2rem;
     cursor: pointer;
-    color:var(--light-color);
+    color:#eee;
     transform: translateY(-50%);
 }
 
 .header .shopping-cart .box .fa-trash:hover{
-    color:var(--orange);
+    color:#E6506E;
 }
 
 .header .shopping-cart .box .content h3{
-    color:var(--black);
+    color:#161622;
     font-size: 1.7rem;
     padding-bottom: 1rem;
 }
 
 .header .shopping-cart .box .content span{
-    color:var(--light-color);
+    color: #161622;
     font-size: 1.6rem;
 }
 
@@ -229,7 +229,7 @@ section{
     font-size: 2.5rem;
     padding:1rem 0;
     text-align: center;
-    color:var(--black);
+    color:#161622;
 }
 
 .header .shopping-cart .btn{
@@ -257,7 +257,7 @@ section{
 .header .login-form h3{
     font-size: 2.5rem;
     text-transform: uppercase;
-    color: var(--black);
+    color: #161622;
 }
 
 .header .login-form .box{
@@ -274,13 +274,14 @@ section{
 .header .login-form p{
     font-size: 1.4rem;
     padding:.5rem 0;
-    color:var(--light-color);
+    color:#eee;
 }
 
 .header .login-form p a{
-    color:var(--orange);
+    color:#E6506E;
     text-decoration: underline;
 }
+
 
 .home-container{
     background: url(../image/banner-bg.webp) no-repeat;
@@ -302,16 +303,16 @@ section{
 }
 
 .home .content h3{
-    color:var(--black);
+    color:#161622;
     font-size: 3rem;
 }
 
 .home .content h3 span{
-    color:var(--orange);
+    color:#E6506E;
 }
 
 .home .content p{
-    color:var(--light-color);
+    color:#251836;
     font-size: 1.7rem;
     padding:1rem 0;
     line-height: 1.8;
@@ -325,7 +326,7 @@ section{
 
 .features .box-container .box{
     padding:3rem 2rem;
-    background: #fff;
+    background: #161622;
     outline: var(--outline);
     outline-offset: -1rem;
     text-align: center;
@@ -345,13 +346,12 @@ section{
 .features .box-container .box h3{
     font-size: 2.5rem;
     line-height: 1.8;
-    color:var(--black);
 }
 
 .features .box-container .box p{
     font-size: 1.5rem;
     line-height: 1.8;
-    color:var(--light-color);
+    color:#eee;
     padding:1rem 0;
 }
 
@@ -370,7 +370,7 @@ section{
 }
 
 .products .product-slider .box{
-    background: #fff;
+    background: #161622;
     border-radius: .5rem;
     text-align: center;
     padding:3rem 2rem;
@@ -391,18 +391,18 @@ section{
 
 .products .product-slider .box h3{
     font-size: 2.5rem;
-    color:var(--black);
+    color:#eee;
 }
 
 .products .product-slider .box .price{
     font-size: 2rem;
-    color:var(--light-color);
+    color:#eee;
     padding:.5rem 0;
 }
 
 .products .product-slider .box .stars i{
     font-size: 1.7rem;
-    color:var(--orange);
+    color:#E6506E;
     padding:.5rem 0;
 }
 
@@ -415,7 +415,7 @@ section{
 .categories .box-container .box{
     padding:3rem 2rem;
     border-radius: .5rem;
-    background:#fff;
+    background:#161622;
     box-shadow: var(--box-shadow);
     outline:var(--outline);
     outline-offset: -1rem;
@@ -434,13 +434,13 @@ section{
 
 .categories .box-container .box h3{
    font-size: 2rem;
-   color:var(--black);
+   color:#eee;
    line-height: 1.8;
 }
 
 .categories .box-container .box p{
     font-size: 1.7rem;
-    color:var(--light-color);
+    color:#eee;
     line-height: 1.8;
     padding:1rem 0;
 }
@@ -450,7 +450,7 @@ section{
 }
 
 .review .review-slider .box{
-    background: #fff;
+    background: #161622;
     border-radius: .5rem;
     text-align: center;
     padding:3rem 2rem;
@@ -474,18 +474,18 @@ section{
 .review .review-slider .box p{
     padding:1rem 0;
     line-height: 1.8;
-    color:var(--light-color);
+    color:#eee;
     font-size: 1.5rem;
 }
 
 .review .review-slider .box h3{
     padding-bottom: .5rem;
-    color:var(--black);
+    color:#eee;
     font-size: 2.2rem;
 }
 
 .review .review-slider .box .stars i{
-    color:var(--orange);
+    color:#E6506E;
     font-size: 1.7rem;
 }
 
@@ -499,7 +499,7 @@ section{
     overflow: hidden;
     border-radius: .5rem;
     box-shadow: var(--box-shadow);
-    background:#fff;
+    background:#161622;
 }
 
 .blogs .box-container .box img{
@@ -522,29 +522,29 @@ section{
 }
 
 .blogs .box-container .box .content .icons a{
-    color:var(--light-color);
+    color:#eee;
     font-size: 1.5rem;
 }
 
 .blogs .box-container .box .content .icons a:hover{
-    color:var(--black);
+    color:#262738;
 }
 
 .blogs .box-container .box .content .icons a i{
-    color:var(--orange);
+    color:#E6506E;
     padding-right: .5rem;
 }
 
 .blogs .box-container .box .content h3{
     line-height: 1.8;
-    color:var(--black);
+    color:#eee;
     font-size: 2.2rem;
     padding:.5rem 0;
 }
 
 .blogs .box-container .box .content p{
     line-height: 1.8;
-    color:var(--light-color);
+    color:#eee;
     font-size: 1.5rem;
     padding:.5rem 0;
 }
@@ -557,23 +557,23 @@ section{
 
 .footer .box-container .box h3{
     font-size: 2.5rem;
-    color:var(--black);
+    color:#eee;
     padding:1rem 0;
 }
 
 .footer .box-container .box h3 i{
-    color:var(--orange);
+    color: #E6506E;
 }
 
 .footer .box-container .box .links{
     display: block;
     font-size: 1.5rem;
-    color:var(--light-color);
+    color:#fff;
     padding:1rem 0;
 }
 
 .footer .box-container .box .links i{
-    color:var(--orange);
+    color:#E6506E;
     padding-right: .5rem;
 }
 
@@ -597,7 +597,7 @@ section{
     font-size: 2rem;
     color:var(--black);
     margin-right: .2rem;
-    background: #eee;
+    background: #E6506E;
     text-align: center;
 }
 
@@ -611,7 +611,7 @@ section{
     margin:.7rem 0;
     padding:1rem;
     border-radius: .5rem;
-    background: #fff;
+    background: #161622;
     font-size: 1.6rem;
     color:var(--black);
     text-transform: none;
@@ -635,7 +635,7 @@ section{
 }
 
 .footer .credit span{
-    color:var(--orange);
+    color:#E6506E;
 }
 
 
