@@ -282,6 +282,13 @@ section{
     text-decoration: underline;
 }
 
+#sign-out:hover {
+    color: #E6506E;
+}
+
+#sign-out {
+    color: #eee;
+}
 
 .home-container{
     background: url(../image/banner-bg.webp) no-repeat;
